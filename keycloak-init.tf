@@ -25,7 +25,7 @@ resource "kubernetes_job" "keycloak_init" {
       spec {
         container {
           name              = "keycloak-admin-client"
-          image             = "kurtis/keycloak-admin-client:${local.keycloak.version}"
+          image             = "kurtis/keycloak-admin-client:15.0.2"
           image_pull_policy = "Always"
           volume_mount {
             mount_path = "/app/script"

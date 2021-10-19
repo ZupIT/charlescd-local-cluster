@@ -44,7 +44,7 @@ resource "helm_release" "redis" {
 
   set {
     name  = "image.tag"
-    value = "6.2"
+    value = "6.2.6-debian-10-r10"
   }
 }
 

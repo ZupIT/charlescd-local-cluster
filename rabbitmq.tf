@@ -34,7 +34,7 @@ resource "helm_release" "rabbitmq" {
 
   set {
     name  = "image.tag"
-    value = "3.9"
+    value = "3.9.7-debian-10-r17"
   }
 }
 

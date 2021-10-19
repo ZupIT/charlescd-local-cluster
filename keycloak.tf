@@ -16,8 +16,7 @@
 
 locals {
   keycloak = {
-    version = "15.0.2"
-    host    = "keycloak.${local.cluster_domain}"
+    host = "keycloak.${local.cluster_domain}"
   }
 }
 
@@ -36,7 +35,7 @@ resource "helm_release" "keycloak" {
 
   values = [
     yamlencode({
-      image            = { repository = "bitnami/keycloak", tag = local.keycloak.version }
+      image            = { repository = "bitnami/keycloak", tag = "15.0.2-debian-10-r52" }
       auth             = {
         adminUser                 = "admin"
         existingSecretPerPassword = {

@@ -59,7 +59,7 @@ resource "helm_release" "postgresql" {
 
   set {
     name  = "image.tag"
-    value = "13"
+    value = "13.4.0-debian-10-r61"
   }
 }
 
