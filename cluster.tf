@@ -34,18 +34,7 @@ resource "kind_cluster" "charlescd" {
         yamlencode({
           "kind"             = "InitConfiguration"
           "nodeRegistration" = { "kubeletExtraArgs" = { "node-labels" = "ingress-ready=true" } }
-        }),
-        yamlencode({
-          "apiVersion" = "kubeadm.k8s.io/v1beta2"
-          "kind"       = "ClusterConfiguration"
-          "metadata"   = { "name" = "config" }
-          "apiServer"  = {
-            "extraArgs" = {
-              "service-account-issuer"           = "kubernetes.default.svc"
-              "service-account-signing-key-file" = "/etc/kubernetes/pki/sa.key"
-            }
-          }
-        }),
+        })
       ]
 
       extra_port_mappings {
