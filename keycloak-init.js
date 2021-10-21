@@ -17,7 +17,7 @@
 module.exports = async function (keycloak) {
     const realm = 'charlescd';
     const publicClient = {clientId: 'charlescd-client'}
-    const confidentialClient = {clientId: 'realm-charlescd'}
+    let confidentialClient = {clientId: 'realm-charlescd'}
 
     // create realm if not exists
     if (!await keycloak.realms.findOne({realm})) {
@@ -53,6 +53,28 @@ module.exports = async function (keycloak) {
             standardFlowEnabled: false,
         });
         console.log(`client '${confidentialClient.clientId}' created`)
+    }
+
+    confidentialClient = (await keycloak.clients.find({clientId: 'realm-charlescd'}))[0]
+
+    // get service account user
+    const serviceAccountUser = await keycloak.clients.getServiceAccountUser(({id: confidentialClient.id}));
+
+    // find roles
+    const realmManagementClient = (await keycloak.clients.find({clientId: 'realm-management'}))[0]
+    const roles = (await keycloak.users.listAvailableClientRoleMappings({
+        id: serviceAccountUser.id,
+        clientUniqueId: realmManagementClient.id
+    })).filter(({name}) => name === 'view-users')
+
+    if (!roles || roles.length === 0) {
+        // assign roles
+        await keycloak.users.addClientRoleMappings({
+            id: serviceAccountUser.id,
+            clientUniqueId: realmManagementClient.id,
+            roles
+        });
+        console.log(`'view-users' role was assigned to client '${confidentialClient.clientId}'`)
     }
 
     // create admin user if not exists
