@@ -127,6 +127,10 @@ resource "helm_release" "charlescd" {
             user     = local.database["charlescd_moove"]["user"]
             password = local.database["charlescd_moove"]["password"]
           }
+          keycloak          = {
+            host         = "http://keycloak.${kubernetes_namespace.iam.metadata[0].name}.svc.cluster.local/auth"
+            clientSecret = random_password.charlescd_client_secret.result
+          }
         }
         villager      = {
           database    = {
