@@ -65,9 +65,9 @@ module.exports = async function (keycloak) {
     const roles = (await keycloak.users.listAvailableClientRoleMappings({
         id: serviceAccountUser.id,
         clientUniqueId: realmManagementClient.id
-    })).filter(({name}) => name === 'view-users')
+    })).filter(({name}) => name === 'view-users' || name === 'manage-users')
 
-    if (!roles || roles.length === 0) {
+    if (roles && roles.length > 0) {
         // assign roles
         await keycloak.users.addClientRoleMappings({
             id: serviceAccountUser.id,
