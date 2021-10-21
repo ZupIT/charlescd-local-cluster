@@ -45,7 +45,7 @@ resource "helm_release" "postgresql" {
 
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "postgresql"
-  version    = "10.9.5"
+  version    = "10.12.4"
 
   set {
     name  = "initdbScriptsSecret"
@@ -59,7 +59,7 @@ resource "helm_release" "postgresql" {
 
   set {
     name  = "image.tag"
-    value = "13.4.0-debian-10-r61"
+    value = "11.13.0-debian-10-r65"
   }
 }
 
