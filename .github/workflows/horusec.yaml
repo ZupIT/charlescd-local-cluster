@@ -32,4 +32,4 @@ jobs:
           HORUSEC_CLI_REPOSITORY_AUTHORIZATION: ${{ secrets.HORUSEC_CLI_REPOSITORY_AUTHORIZATION }}
         run: |
           curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
-          horusec start -p . -n="Charles/c4model" -u="https://api-horusec.zup.com.br"
+          horusec start -p . -n="Charles/terraform" -u="https://api-horusec.zup.com.br"
