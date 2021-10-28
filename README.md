@@ -1,6 +1,6 @@
 # Installing via Terraform
 
-Istall CharlesCD via Terraform in your local environment.
+Install CharlesCD via Terraform in your local environment.
 
 ## **What is CharlesCD?**
 
