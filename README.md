@@ -40,6 +40,9 @@ make down
 Would you like a step-by-step instructions to get it all running on your local environment?
 Please, [check this out](./MANUAL_INSTALLATION.md).
 
+# **Issues**
+
+To open or track an issue for this project, in order to better coordinate your discussions, we recommend that you use the [**Issues tab**](https://github.com/ZupIT/charlescd/issues) in the main [**CharlesCD**](https://github.com/ZupIT/charlescd) repository.
 
 # **Contributing**
 
@@ -51,7 +54,6 @@ Do you want to know more on how to contribute, check out [**CharlesCD contributi
 
 Feel free to reach out to us at:
 
-- [**GitHub Issues**](https://github.com/ZupIT/docs-charles/issues)
 - [**Zup Open Source Forum**](https://forum.zup.com.br)
 
 
