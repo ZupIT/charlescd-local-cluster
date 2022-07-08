@@ -1,3 +1,6 @@
+# The Charles project has been archived by Zup Innovation. It might start again eventually; however, we won't deliver support for now.
+
+
 # Installing via Terraform
 
 Install CharlesCD via Terraform in your local environment.
